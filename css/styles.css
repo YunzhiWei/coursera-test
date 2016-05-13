@@ -1,11 +1,6 @@
 body {
   font-size: 16px;
-  color: #fff;
   font-family: 'Oxygen', sans-serif;
-}
-
-h2 {
-  text-align: center;
 }
 
 /** HEADER **/
@@ -27,7 +22,6 @@ h1 { /* Restaurant name */
   font-family: 'Lora', serif;
   margin: 0;
   color: #000000;
-  font-size: 3vw; /* 1vw = 1% of viewport width */
   font-weight: bold;
   text-shadow: 1px 1px 1px #222;
 }
@@ -38,8 +32,14 @@ h1 { /* Restaurant name */
   background-color: #ffffff;
 }
 
+#nav-list a {
+  text-align: center;
+  background-color: #dcdcdc;
+}
+
 #nav-list a:hover {
-  background: #0;
+  background: #666666;
+  text-align: center;
 }
 
 #nav-list a span {
@@ -53,86 +53,22 @@ h1 { /* Restaurant name */
   clear: both;
   margin-top: -30px;
 }
-/* END HEADER */
 
-/* HOME PAGE */
-
-#chicken-tile, #beef-tile, #sushi-tile {
+.row section {
+  background-color: gray;
+  border: 1px solid black;
+  margin: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 250px;
-  width: 100%;
-  margin-bottom: 15px;
-  position: relative;
   overflow: hidden;
-  background-color: #b9b9b9;
-}
-#chicken-tile:hover, #beef-tile:hover, #sushi-tile:hover {
-  box-shadow: 0 1px 5px 1px #cccccc;
-}
-#chicken-tile span, #beef-tile span, #sushi-tile span {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.6em;
-  color: #000000;
-  opacity: .8;
-}
-/* END HOME PAGE */
-
-
-/********** Large devices only **********/
-@media (min-width: 1200px) {
 }
 
-/********** Medium devices only **********/
-@media (min-width: 992px) and (max-width: 1199px) {
-  /* Home Page */
-  /* End Home Page */
+.row h3 {
+  margin-top: 5px;
+  margin-bottom: 3px;
 }
 
-/********** Small devices only **********/
-@media (min-width: 768px) and (max-width: 991px) {
-  /* Home Page */
-  /* End Home Page */
-}
-
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-  /* Header */
-  .navbar-brand {
-    padding-top: 10px;
-    height: 80px;
-  }
-
-  /* End Header */
-
-  /* Home Page */
-  #chicken-tile, #beef-tile {
-    width: 360px;
-    margin: 0 auto 15px;
-  }
-
-}
-
-
-/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
-@media (max-width: 479px) {
-   /* Home page */
-  #chicken-tile, #beef-tile, #sushi-tile {
-    width: 280px;
-    margin: 0 auto 15px;
-  }
-
-  .col-xxs-12 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    float: left;
-    width: 100%;
-  }
-}
 
 
 
