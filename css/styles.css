@@ -2,6 +2,13 @@
 * {
   box-sizing: border-box;
 }
+
+#header-nav {
+  background-color: #736F6F;
+  border-radius: 0;
+  border: 0;
+}
+
 h1 {
   margin-bottom: 15px;
   text-align: center;
