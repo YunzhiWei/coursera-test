@@ -18,6 +18,7 @@ var allCategoriesUrl =
   "http://davids-restaurant.herokuapp.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
 var categoryHtml = "snippets/category-snippet.html";
+// ++++++++++++++++ Chris ++++++++++++++++
 var menuItemsUrl = 
   "http://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
@@ -151,12 +152,15 @@ dc.loadMenuCategories = function () {
 };
 
 
+// ++++++++++ Chris +++++++++++++
+// 1st - to get the json file, when end user click the img on the home page
+
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuItemsUrl + categoryShort,
+    menuItemsUrl + categoryShort,                       // Chris: http://davids-restaurant.herokuapp.com/menu_items.json?category=
     buildAndShowMenuItemsHTML);
 };
 
@@ -216,18 +220,20 @@ function buildCategoriesViewHtml(categories,
 }
 
 
+// +++++++++++++++++++++ Chris +++++++++++++++++++++++
+// 2ns - after getting json, to get menu-items-title.html
 
 // Builds HTML for the single category page based on the data
 // from the server
-function buildAndShowMenuItemsHTML (categoryMenuItems) {
+function buildAndShowMenuItemsHTML (categoryMenuItems) {  // Chris: categoryMenuItems = json file
   // Load title snippet of menu items page
   $ajaxUtils.sendGetRequest(
-    menuItemsTitleHtml,
-    function (menuItemsTitleHtml) {
+    menuItemsTitleHtml,                                   // Chris: snippets/menu-items-title.html
+    function (menuItemsTitleHtml) {                       // Chris: menuItemsTitleHtml = menu-items-title.html
       // Retrieve single menu item snippet
       $ajaxUtils.sendGetRequest(
-        menuItemHtml,
-        function (menuItemHtml) {
+        menuItemHtml,                                     // Chris: snippets/menu-item.html
+        function (menuItemHtml) {                         // Chris: menuItemHtml = menu-item.html
           // Switch CSS class active to menu button
           switchMenuToActive();
           
@@ -242,12 +248,14 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
     false);
 }
 
+// ++++++++++++++++++++++++ Chris +++++++++++++++++++++++
+// Finally - assemble all content together to build the content to show to end user
 
 // Using category and menu items data and snippets html
 // build menu items view HTML to be inserted into page
-function buildMenuItemsViewHtml(categoryMenuItems, 
-                                menuItemsTitleHtml,
-                                menuItemHtml) {
+function buildMenuItemsViewHtml(categoryMenuItems,        // Chris: json file
+                                menuItemsTitleHtml,       // Chris: menu-items-title.html
+                                menuItemHtml) {           // Chris: menu-item.html
   
   menuItemsTitleHtml = 
     insertProperty(menuItemsTitleHtml,
