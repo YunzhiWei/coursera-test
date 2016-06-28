@@ -260,43 +260,30 @@ function buildMenuItemsViewHtml(categoryMenuItems,        // Chris: json file
   menuItemsTitleHtml = 
     insertProperty(menuItemsTitleHtml,
                    "name",
-                   categoryMenuItems.category.name);
+                   "Dining Copy");
   menuItemsTitleHtml = 
     insertProperty(menuItemsTitleHtml,
                    "special_instructions",
-                   categoryMenuItems.category.special_instructions);
+                   "24 x 7 from AR team");
 
   var finalHtml = menuItemsTitleHtml;
   finalHtml += "<section class='row'>";
 
   // Loop over menu items
   var menuItems = categoryMenuItems.menu_items;
-  var catShortName = categoryMenuItems.category.short_name;
   for (var i = 0; i < menuItems.length; i++) {
     // Insert menu item values
     var html = menuItemHtml;
     html = 
-      insertProperty(html, "short_name", menuItems[i].short_name);
+      insertProperty(html, "discount", "30% off");
     html = 
       insertProperty(html, 
-                     "catShortName",
-                     catShortName);
-    html =
-      insertItemPrice(html,
-                      "price_small",
-                      menuItems[i].price_small); 
-    html =
-      insertItemPortionName(html,
-                            "small_portion_name",
-                            menuItems[i].small_portion_name);
+                     "pic_url",
+                     "images/menu/A/A1.jpg");
     html = 
       insertItemPrice(html,
                       "price_large",
                       menuItems[i].price_large);
-    html =
-      insertItemPortionName(html,
-                            "large_portion_name",
-                            menuItems[i].large_portion_name);
     html = 
       insertProperty(html, 
                      "name",
