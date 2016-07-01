@@ -160,7 +160,8 @@ dc.loadMenuCategories = function () {
 dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuItemsUrl + categoryShort,                       // Chris: http://davids-restaurant.herokuapp.com/menu_items.json?category=
+    // menuItemsUrl + categoryShort,                       // Chris: http://davids-restaurant.herokuapp.com/menu_items.json?category=
+    "api/deals.json",
     buildAndShowMenuItemsHTML);
 };
 
@@ -227,6 +228,8 @@ function buildCategoriesViewHtml(categories,
 // from the server
 function buildAndShowMenuItemsHTML (categoryMenuItems) {  // Chris: categoryMenuItems = json file
   // Load title snippet of menu items page
+  console.log(categoryMenuItems);
+  
   $ajaxUtils.sendGetRequest(
     menuItemsTitleHtml,                                   // Chris: snippets/menu-items-title.html
     function (menuItemsTitleHtml) {                       // Chris: menuItemsTitleHtml = menu-items-title.html
@@ -270,7 +273,8 @@ function buildMenuItemsViewHtml(categoryMenuItems,        // Chris: json file
   finalHtml += "<section class='row'>";
 
   // Loop over menu items
-  var menuItems = categoryMenuItems.menu_items;
+  // var menuItems = categoryMenuItems.menu_items;
+  var menuItems = categoryMenuItems;
   for (var i = 0; i < menuItems.length; i++) {
     // Insert menu item values
     var html = menuItemHtml;
@@ -283,15 +287,15 @@ function buildMenuItemsViewHtml(categoryMenuItems,        // Chris: json file
     html = 
       insertItemPrice(html,
                       "price_large",
-                      menuItems[i].price_large);
+                      menuItems[i].list_price);
     html = 
       insertProperty(html, 
                      "name",
-                     menuItems[i].name);
+                     menuItems[i].deal_name);
     html = 
       insertProperty(html, 
                      "description",
-                     menuItems[i].description);
+                     menuItems[i].rest_name);
 
     // Add clearfix after every second menu item
     if (i % 2 != 0) {
