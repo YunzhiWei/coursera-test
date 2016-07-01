@@ -162,6 +162,7 @@ dc.loadMenuItems = function (categoryShort) {
   $ajaxUtils.sendGetRequest(
     // menuItemsUrl + categoryShort,                       // Chris: http://davids-restaurant.herokuapp.com/menu_items.json?category=
     "api/deals.json",
+    // "https://ror-diningcopy2.herokuapp.com/deals.json",
     buildAndShowMenuItemsHTML);
 };
 
@@ -279,15 +280,15 @@ function buildMenuItemsViewHtml(categoryMenuItems,        // Chris: json file
     // Insert menu item values
     var html = menuItemHtml;
     html = 
-      insertProperty(html, "discount", "30% off");
+      insertProperty(html, "discount", menuItems[i].disc_info);
     html = 
       insertProperty(html, 
                      "pic_url",
-                     "images/menu/A/A1.jpg");
+                     menuItems[i].pic_url);
     html = 
       insertItemPrice(html,
                       "price_large",
-                      menuItems[i].list_price);
+                      100); // menuItems[i].list_price);
     html = 
       insertProperty(html, 
                      "name",
